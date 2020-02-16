@@ -5,7 +5,6 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { headerColor, headerTintColor } from './constants/Colors';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
@@ -30,6 +29,7 @@ export default function App(props) {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
+          // eslint-disable-next-line no-undef
           'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
         });
       } catch (e) {
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
 });
 
 const headerStyles = {
-  headerColor: "#2f395c",
+  headerColor: "#4968bd",
   headerTintColor: "#fff",
 }

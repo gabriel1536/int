@@ -20,10 +20,6 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={HomeScreen}
         options={{
           title: 'Stats',
-          headerStyle: {
-            backgroundColor: 'black',
-          },
-          headerTintColor: 'black',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
         }}
       />

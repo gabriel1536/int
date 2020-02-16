@@ -2,8 +2,32 @@ import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
+import Accordion from 'react-native-collapsible/Accordion';
 
 import { MonoText } from '../components/StyledText';
+
+
+const SECTIONS = [
+  {
+    title: 'platita',
+    content: 'Lorem ipsum...',
+  },
+  {
+    title: 'Second',
+    content: () => (
+      <View style={styles.welcomeContainer}>
+          <Image
+            source={
+              __DEV__
+                ? require('../assets/images/robot-dev.png')
+                : require('../assets/images/robot-prod.png')
+            }
+            style={styles.welcomeImage}
+          />
+        </View>
+    )
+  },
+];
 
 export default function HomeScreen() {
   return (
@@ -84,7 +108,7 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4968bd',
+    backgroundColor: '#5690f2',
   },
   developmentModeText: {
     marginBottom: 20,
