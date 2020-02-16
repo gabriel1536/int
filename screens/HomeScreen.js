@@ -24,7 +24,7 @@ const SECTIONS = [
     )
   }
 ];
-
+ 
 export default function HomeScreen() {
   const [activeSections, setActiveSections] = useState([]);
 
