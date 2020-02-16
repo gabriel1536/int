@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../constants/Colors";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#5690f2"
+    backgroundColor: Colors.backgroundColor
   },
   developmentModeText: {
     marginBottom: 20,
@@ -87,50 +88,77 @@ export default StyleSheet.create({
     fontSize: 14,
     color: "#2e78b7"
   },
-  header: {
-    backgroundColor: "#F5FCFF",
-    padding: 10
+  accordionHeader: {
+    backgroundColor: Colors.backgroundColor,
+    padding: 25,
+    borderBottomWidth: 0.5,
+    borderBottomColor: Colors.fontColor,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30
   },
-  headerText: {
-    textAlign: "center",
-    fontSize: 16,
-    fontWeight: "500"
+  accordionHeaderContent: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
-  content: {
+  accordionHeaderContent2: {
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  percentileShow : {
+    marginLeft: '20%'
+  },
+  percentileContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 4,
+    backgroundColor: Colors.percentileColor,
+    borderColor: Colors.percentileColor,
+    borderRadius: 20,
+  },
+  accordionHeaderText: {
+    textAlign: "left",
+    fontSize: 22,
+    fontWeight: "600",
+    color: Colors.fontColor
+  },
+  accordionText: {
+    textAlign: "left",
+    fontSize: 15,
+    fontWeight: "600",
+    color: Colors.fontColor
+  },
+  accordionContent: {
     padding: 20,
-    backgroundColor: "#fff"
+    backgroundColor: Colors.fontColor
   },
-  active: {
+  accordionActive: {
     backgroundColor: "rgba(255,255,255,1)"
   },
-  inactive: {
+  accordionInactive: {
     backgroundColor: "rgba(245,252,255,1)"
   },
-  selectors: {
+  accordionSelectors: {
     marginBottom: 10,
     flexDirection: "row",
     justifyContent: "center"
   },
-  selector: {
-    backgroundColor: "#F5FCFF",
+  accordionSelector: {
+    backgroundColor: "#f7f7f7",
     padding: 10
   },
-  activeSelector: {
+  accordionActiveSelector: {
     fontWeight: "bold"
   },
-  selectTitle: {
+  accordionSelectTitle: {
     fontSize: 14,
     fontWeight: "500",
     padding: 10
   },
-  multipleToggle: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginVertical: 30,
-    alignItems: "center"
+  icons: {
+    color: Colors.fontColor
   },
-  multipleToggle__title: {
-    fontSize: 16,
-    marginRight: 8
+  caretUp: {
+    color: "#66c491"
   }
 });

@@ -5,6 +5,7 @@ import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Colors from './constants/Colors';
 
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import useLinking from "./navigation/useLinking";
@@ -80,6 +81,6 @@ const styles = StyleSheet.create({
 });
 
 const headerStyles = {
-  headerColor: "#4968bd",
-  headerTintColor: "#fff"
+  headerColor: Colors.headerColor,
+  headerTintColor: Colors.fontColor
 };
