@@ -4,7 +4,7 @@ import Colors from "../constants/Colors";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor
+    backgroundColor: Colors.backgroundColor,
   },
   developmentModeText: {
     marginBottom: 20,
@@ -14,7 +14,8 @@ export default StyleSheet.create({
     textAlign: "center"
   },
   contentContainer: {
-    paddingTop: 30
+    paddingTop: 30,
+    alignItems: "center"
   },
   welcomeContainer: {
     alignItems: "center",

@@ -14,5 +14,7 @@ export default {
   headerColor: "#3590f3",
   backgroundColor: "#62bfed",
   fontColor: "#f7f7f7",
-  percentileColor: "#8cd0f1"
+  percentileColor: "#8cd0f1",
+  barColorToggled: "#2c76c7",
+  barColor: "#abdcf4"
 };

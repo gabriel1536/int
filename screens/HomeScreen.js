@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import * as WebBrowser from "expo-web-browser";
+import { Dimensions } from "react-native";
 import Accordion from "react-native-collapsible/Accordion";
 import styles from "./styles.js";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -10,8 +10,30 @@ import {
   faAngleRight,
   faCaretUp
 } from "@fortawesome/free-solid-svg-icons";
+import BarChart from "../components/chart/bar-chart";
+import Colors from '../constants/Colors';
 
-import { MonoText } from "../components/StyledText";
+const linedata = {
+  labels: [
+    "Ene",
+    "Feb",
+    "Mar",
+    "Abr",
+    "May",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dic"
+  ],
+  datasets: [
+    {
+      data: [20, 45, 28, 80, 99, 43, 20, 45, 28, 80, 99, 43]
+    }
+  ]
+};
 
 const SECTIONS = [
   {
@@ -85,6 +107,7 @@ export default function HomeScreen() {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
+        {barChart()}
       </ScrollView>
     </View>
   );
@@ -105,5 +128,35 @@ const accordionHeader = (section, index, isActive) => {
         />
       </View>
     </View>
+  );
+};
+
+const barChart = () => {
+  return (
+    <BarChart
+      data={linedata}
+      width={Dimensions.get("screen").width * 0.9} // from react-native
+      height={Dimensions.get("screen").height * 0.3}
+      withHorizontalLabels={false}
+      chartConfig={{
+        backgroundColor: Colors.percentileColor,
+        backgroundGradientFrom: Colors.percentileColor,
+        backgroundGradientTo: Colors.percentileColor,
+        decimalPlaces: 2, // optional, defaults to 2dp
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+        style: {
+          borderRadius: 16
+        },
+        barPercentage: 0.42
+      }}
+      withInnerLines={false}
+      fromZero={true}
+      showBarTops={false}
+      style={{
+        marginVertical: 8,
+        borderRadius: 16
+      }}
+      verticalLabelRotation={270}
+    />
   );
 };
