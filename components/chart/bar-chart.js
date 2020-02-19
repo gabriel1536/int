@@ -11,8 +11,20 @@ class BarChart extends AbstractChart {
   constructor(props) {
     super(props);
     this.state = {
-      //fix model (add name or something)
-      toggledBars: []
+      toggledBars: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
     };
   }
 
@@ -25,10 +37,6 @@ class BarChart extends AbstractChart {
     const { data, width, height, paddingTop, paddingRight, barRadius } = config;
     const baseHeight = this.calcBaseHeight(data, height);
     return data.map((x, i) => {
-      //fix this
-      this.setState({
-        toggledBars: [...this.state.toggledBars, false]
-      });
       const barHeight = this.calcHeight(x, data, height);
       const barWidth = 32 * this.getBarPercentage();
       const xPos =
@@ -40,15 +48,17 @@ class BarChart extends AbstractChart {
         paddingTop;
       return (
         <View>
-          {<View style={{
-              position: "absolute",
-              left: xPos,
-              top: yPos,
-            }}>
-            <Text style={styles.tooltip}>
-              $ 142,5
-            </Text>
-          </View>}
+          { this.state.toggledBars[i] &&
+            <View
+              style={{
+                position: "absolute",
+                left: xPos,
+                top: yPos,
+              }}
+            >
+              <Text style={styles.tooltip}>$ {data[i].toFixed(2)}</Text>
+            </View>
+          }
           <Rect
             key={Math.random()}
             x={xPos}
@@ -56,13 +66,13 @@ class BarChart extends AbstractChart {
             rx={barRadius}
             width={barWidth}
             height={(Math.abs(barHeight) / 4) * 3}
-            fill={Colors.barColor}
+            fill={this.state.toggledBars[i] ? Colors.barColorToggled : Colors.barColor}
             onPress={() => {
-              //fix this
-              console.log(this.state.toggledBars);
               this.setState({
-                toggledBars: toggledBars.map((item, index) => index === i ? !item : item)
-              })
+                toggledBars: this.state.toggledBars.map((item, index) =>
+                  index === i ? !item : false
+                )
+              });
             }}
           />
         </View>
@@ -107,7 +117,7 @@ class BarChart extends AbstractChart {
       showBarTops = true,
       segments = 4
     } = this.props;
-    const { borderRadius = 0, paddingTop = 25, paddingRight = 5 } = style;
+    const { borderRadius = 0, paddingTop = 25, paddingRight = 60 } = style;
     const config = {
       width,
       height,

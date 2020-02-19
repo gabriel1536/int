@@ -135,9 +135,9 @@ const barChart = () => {
   return (
     <BarChart
       data={linedata}
-      width={Dimensions.get("screen").width * 0.9} // from react-native
+      width={Dimensions.get("screen").width * 0.96} // from react-native
       height={Dimensions.get("screen").height * 0.3}
-      withHorizontalLabels={false}
+      withHorizontalLabels={true}
       chartConfig={{
         backgroundColor: Colors.percentileColor,
         backgroundGradientFrom: Colors.percentileColor,
@@ -149,13 +149,12 @@ const barChart = () => {
         },
         barPercentage: 0.42
       }}
-      withInnerLines={false}
       fromZero={true}
-      showBarTops={false}
       style={{
         marginVertical: 8,
-        borderRadius: 16
+        borderRadius: 8
       }}
+      yAxisLabel={"$"}
       verticalLabelRotation={270}
     />
   );

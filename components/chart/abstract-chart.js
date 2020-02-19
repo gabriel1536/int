@@ -103,7 +103,7 @@ class AbstractChart extends Component {
       paddingTop,
       paddingRight,
       horizontalLabelRotation = 0,
-      decimalPlaces = 2,
+      decimalPlaces = 1,
       formatYLabel = yLabel => yLabel
     } = config;
     const {
